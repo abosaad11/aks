@@ -1,0 +1,20 @@
+name: build-davinci333
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check Out
+      uses: actions/checkout@v3
+
+    - name: Build
+      run: source build.sh beyond1lte
+        
+    - name: Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: build
+        path: build/
